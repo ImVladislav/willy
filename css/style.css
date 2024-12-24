@@ -759,7 +759,13 @@ li {
 }
 
 .mole.up {
-	bottom: 30px;
+	bottom: 0px;
+}
+
+@media (min-width: 768px) {
+	.hole {
+		height: 250px;
+	}
 }
 
 .score-container {
