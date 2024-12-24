@@ -709,8 +709,8 @@ li {
 	position: relative;
 	width: 100%;
 	max-width: 100vw;
-	height: 70vh; /* Висота гри */
-	background: #8cba80; /* Зелений фон */
+	height: calc(100% * 1); /* Висота гри */
+	background:#efefbe; /* Зелений фон */
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 10px;
@@ -718,13 +718,30 @@ li {
 	box-sizing: border-box;
 }
 
+
+
+
+
+
 .hole {
 	position: relative;
 	width: 100%;
-	height: 100%;
-	background: #5e8b5a;
+	height: 115px;
+	background: #242526;
 	border-radius: 50%;
 	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легка тінь для об'єму */
+}
+
+@media (min-width: 768px) {
+	.hole {
+		height: 250px;
+	}
+}
+@media (min-width: 1024px) {
+	.hole {
+		height: 320px;
+	}
 }
 
 .mole {
@@ -732,13 +749,17 @@ li {
 	bottom: -100%;
 	width: 80%;
 	height: 80%;
-	background: #ff5722; /* Кольоровий блок замість зображення */
+	/* background: #ff5722; Кольоровий блок замість зображення */
 	border-radius: 50%;
 	transition: all 0.3s ease;
+	background: url('../images/F.jpg') no-repeat center center;
+	/* background-size: contain; */
+	margin-left: 10%;
+
 }
 
 .mole.up {
-	bottom: 0;
+	bottom: 30px;
 }
 
 .score-container {
@@ -750,6 +771,9 @@ li {
 	background: #333;
 	color: white;
 }
+
+
+
 
 .score {
 	font-size: 1.5rem;
@@ -773,6 +797,8 @@ li {
 	background: #e64a19;
 }
 
+
+/*  */
 .social-button {
 	display: flex;
 	justify-content: center;
