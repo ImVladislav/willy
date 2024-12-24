@@ -101,3 +101,19 @@ startButton.addEventListener('click', () => {
 
 const moles = document.querySelectorAll('.mole');
 moles.forEach(mole => mole.addEventListener('click', bonk));
+
+//копі текст
+
+document.getElementById('text-to-copy').addEventListener('click', function () {
+    // Отримуємо текст з елемента
+    const text = this.textContent;
+
+    // Копіюємо текст до буфера обміну
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            alert(`Copied: "${text}"`);
+        })
+        .catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+});

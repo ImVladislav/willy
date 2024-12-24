@@ -611,9 +611,18 @@ li {
 
 /* Розташування тексту відповідно до картинки */
 .text-1 {
+	position: absolute;
 	top: 45%;
 	left: 25%;
 	transform: translate(-50%, -50%);
+	/* font-size: 24px; */
+	color: #333;
+	/* background: #fff; */
+	/* padding: 10px 20px; */
+	/* border: 1px solid #ccc; */
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background 0.3s ease, color 0.3s ease;
 }
 
 .text-2 {
@@ -762,4 +771,53 @@ li {
 
 .start-button:hover {
 	background: #e64a19;
+}
+
+.social-button {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap; /* Забезпечує адаптивність для малих екранів */
+
+}
+
+.social-button a {
+	margin: 0 15px;
+}
+
+.social-button img {
+	width: 150px;
+	transition: transform 0.3s ease;
+}
+
+.social-button img:hover {
+	transform: scale(1.1); /* Ефект при наведенні */
+}
+
+/* Стиль для ширини екрану більше ніж 768 пікселів */
+@media (min-width: 768px) {
+	.social-button {
+		flex-wrap: nowrap; /* Забороняє переноси */
+	}
+
+	.social-button.single-row {
+		justify-content: center;
+	}
+
+	.social-button.double-row {
+		display: none; /* Ховаємо другий ряд */
+	}
+	.social-button a {
+		margin: 25px;
+	}
+}
+
+/* Стиль для ширини екрану менше ніж 768 пікселів */
+@media (max-width: 768px) {
+	.social-button.single-row {
+		display: none; /* Ховаємо перший ряд */
+	}
+
+	.social-button.double-row {
+		display: flex;
+	}
 }

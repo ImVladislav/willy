@@ -46,12 +46,23 @@
 				<center>
 					<img src="images/3.png" id="ape">
 				</center>
-				<div class="social-button" style="display: flex; justify-content: center;" id="social">
-					<a class="new" href="https://x.com/DokOnSolana" style="margin: 25px;"><img class="anim new-dex" id="x-res" src="images/4.png" width="150px"></a>
-					<a class="new" href="https://t.me/dok_solana" style="margin: 25px;"><img class="anim new-dex" id="t-res" src="images/5.png" width="150px"></a>
-					<a class="new" href="https://x.com/DokOnSolana" style="margin: 25px;"><img class="anim new-dex" id="x-res" src="images/6.png" width="150px"></a>
-					<a class="new" href="https://t.me/dok_solana" style="margin: 25px;"><img class="anim new-dex" id="t-res" src="images/7.png" width="150px"></a>
-				</div>
+    <!-- Відображення для ширини екрану більше ніж 768px -->
+    <div class="social-button single-row">
+        <a class="new" href="https://x.com/DokOnSolana"><img class="anim new-dex" id="x-res" src="images/4.png" alt="Social 1"></a>
+        <a class="new" href="https://t.me/dok_solana"><img class="anim new-dex" id="t-res" src="images/5.png" alt="Social 2"></a>
+        <a class="new" href="https://x.com/DokOnSolana"><img class="anim new-dex" id="x-res" src="images/6.png" alt="Social 3"></a>
+        <a class="new" href="https://t.me/dok_solana"><img class="anim new-dex" id="t-res" src="images/7.png" alt="Social 4"></a>
+    </div>
+
+    <!-- Відображення для ширини екрану менше ніж 768px -->
+    <div class="social-button double-row">
+        <a class="new" href="https://x.com/DokOnSolana"><img class="anim new-dex" id="x-res" src="images/4.png" alt="Social 1"></a>
+        <a class="new" href="https://t.me/dok_solana"><img class="anim new-dex" id="t-res" src="images/5.png" alt="Social 2"></a>
+    </div>
+    <div class="social-button double-row">
+        <a class="new" href="https://x.com/DokOnSolana"><img class="anim new-dex" id="x-res" src="images/6.png" alt="Social 3"></a>
+        <a class="new" href="https://t.me/dok_solana"><img class="anim new-dex" id="t-res" src="images/7.png" alt="Social 4"></a>
+    </div>
 			</div>
 		</div>
 	</section>
@@ -170,7 +181,9 @@
 			</div>
 			<div class="image-container">
 				<img src="images/awesomenomics.png" alt="awesomenomics">
-				<div class="text text-1">first word</div>
+
+
+				<div class="text text-1"id="text-to-copy">first word</div>
 				<div class="text text-2">secound word</div>
 				<div class="text text-3">third word</div>
 				<div class="text text-4">chetverte word</div>
