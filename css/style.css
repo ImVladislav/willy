@@ -773,7 +773,11 @@ li {
 }
 
 
-
+.best-score {
+    font-size: 1.5rem;
+    color: #ffcc33;
+    margin-left: 20px;
+}
 
 .score {
 	font-size: 1.5rem;
