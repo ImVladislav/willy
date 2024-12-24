@@ -26,3 +26,57 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// game
+
+const holes = document.querySelectorAll('.hole');
+const scoreBoard = document.getElementById('score');
+let score = 0;
+let lastHole;
+let timeUp = false;
+
+function randomTime(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+function randomHole(holes) {
+    const idx = Math.floor(Math.random() * holes.length);
+    const hole = holes[idx];
+    if (hole === lastHole) {
+        return randomHole(holes);
+    }
+    lastHole = hole;
+    return hole;
+}
+
+function peep() {
+    const time = randomTime(500, 1500); // Час перебування тваринки
+    const hole = randomHole(holes);
+    const mole = hole.querySelector('.mole');
+    mole.classList.add('up');
+    setTimeout(() => {
+        mole.classList.remove('up');
+        if (!timeUp) peep();
+    }, time);
+}
+
+function startGame() {
+    score = 0;
+    scoreBoard.textContent = `Score: ${score}`;
+    timeUp = false;
+    peep();
+    setTimeout(() => (timeUp = true), 20000); // Тривалість гри
+}
+
+function bonk(e) {
+    if (!e.isTrusted) return; // Захист від шахрайства
+    score++;
+    this.classList.remove('up');
+    scoreBoard.textContent = `Score: ${score}`;
+}
+
+const moles = document.querySelectorAll('.mole');
+moles.forEach(mole => mole.addEventListener('click', bonk));
+
+// Автоматично запускаємо гру
+startGame();
