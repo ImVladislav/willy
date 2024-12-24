@@ -31,9 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.getElementById('score');
+const timerDisplay = document.getElementById('timer');
+const startButton = document.getElementById('start-button');
 let score = 0;
 let lastHole;
-let timeUp = false;
+let timeUp = true;
+let timeLeft = 20; // Тривалість гри у секундах
+let timerInterval;
 
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -62,10 +66,26 @@ function peep() {
 
 function startGame() {
     score = 0;
-    scoreBoard.textContent = `Score: ${score}`;
+    timeLeft = 20; // Відновлення тривалості гри
     timeUp = false;
+    scoreBoard.textContent = `Score: ${score}`;
+    timerDisplay.textContent = `Time: ${timeLeft}s`;
+    clearInterval(timerInterval);
+    timerInterval = setInterval(updateTimer, 1000);
     peep();
-    setTimeout(() => (timeUp = true), 20000); // Тривалість гри
+    setTimeout(() => {
+        timeUp = true;
+        clearInterval(timerInterval);
+        timerDisplay.textContent = `Time: 0s`;
+    }, timeLeft * 1000);
+}
+
+function updateTimer() {
+    timeLeft--;
+    timerDisplay.textContent = `Time: ${timeLeft}s`;
+    if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+    }
 }
 
 function bonk(e) {
@@ -75,8 +95,9 @@ function bonk(e) {
     scoreBoard.textContent = `Score: ${score}`;
 }
 
+startButton.addEventListener('click', () => {
+    startGame();
+});
+
 const moles = document.querySelectorAll('.mole');
 moles.forEach(mole => mole.addEventListener('click', bonk));
-
-// Автоматично запускаємо гру
-startGame();
