@@ -225,25 +225,25 @@ li {
 
 #title-dok {
 	height: 250px;
-	margin-left: 900px;
+	/* margin-left: 900px; */
 	margin-top: 200px;
 }
 
 #powered {
 	height: 150px;
-	margin-left: 900px;
+	/* margin-left: 900px; */
 	/* margin-top: 30px; */
 }
 
 #ape {
 	height: 100px;
-	margin-left: 900px;
+	/* margin-left: 900px; */
 	margin-bottom: 15PX;
 	/* margin-top: 30px; */
 }
 
 #social {
-	margin-left: 900px;
+	/* margin-left: 900px; */
 	margin-top: -80px;
 }
 
@@ -846,6 +846,22 @@ li {
 	.social-button a {
 		margin: 25px;
 	}
+}
+
+
+.hammer {
+	position: absolute;
+	width: 80px; /* Розмір молотка */
+	height: 80px;
+	background: url('images/hammer.png') no-repeat center center; /* Молоток */
+	background-size: contain;
+	pointer-events: none; /* Дозволяє кліки через молоток */
+	transform: translate(-50%, -50%) rotate(0deg);
+	transition: transform 0.1s ease;
+}
+
+.hammer.active {
+	transform: translate(-50%, -50%) rotate(-45deg); /* Поворот молотка при кліку */
 }
 
 /* Стиль для ширини екрану менше ніж 768 пікселів */
