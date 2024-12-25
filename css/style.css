@@ -753,19 +753,76 @@ li {
 	/* background: #ff5722; Кольоровий блок замість зображення */
 	border-radius: 50%;
 	transition: all 0.3s ease;
-	background: url('../images/F.jpg') no-repeat center center;
+	/* background: url('../images/123.png') no-repeat center center; */
 	/* background-size: contain; */
-	margin-left: 10%;
+	background-color: transparent;
+	/* background-color: red; */
+	/* margin-left: 10%; */
 
 }
 
+
 .mole.up {
-	bottom: 0px;
+	bottom: 20%;
 }
 
 @media (min-width: 768px) {
 	.hole {
 		height: 250px;
+	}
+}
+
+.moleImg{
+	width: 140%;
+}
+
+
+@media (min-width: 480px) {
+	.moleImg{
+		width: 110%;
+	}
+	.mole {
+		margin-left: 10%;
+	}
+}
+@media (min-width: 600px) {
+	.moleImg{
+		width: 80%;
+	}
+	.mole {
+		margin-left: 20%;
+	}
+}
+@media (min-width: 768px) {
+	.moleImg{
+		width: 140%;
+	}
+	.mole {
+		margin-left: 0;
+	}
+}
+@media (min-width: 945px) {
+	.moleImg{
+		width: 110%;
+	}
+	.mole {
+		margin-left: 10%;
+	}
+}
+@media (min-width: 1239px) {
+	.moleImg{
+		width: 80%;
+	}
+	.mole {
+		margin-left: 20%;
+	}
+}
+@media (min-width: 1680px) {
+	.moleImg{
+		width: 60%;
+	}
+	.mole {
+		margin-left: 30%;
 	}
 }
 
