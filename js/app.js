@@ -152,3 +152,46 @@ document.getElementById('text-to-copy').addEventListener('click', function () {
             console.error('Failed to copy text: ', err);
         });
 });
+
+
+// фак мор
+
+
+const counterButton = document.getElementById("counter-button");
+const dynamicGif = document.getElementById("dynamic-gif");
+
+const gifs = [
+    "gif/0.png",
+    "gif/1.gif",
+    "gif/2.gif",
+    "gif/3.gif",
+    "gif/4.gif",
+];
+let counter = 0;
+
+// Функція для оновлення тексту кнопки
+function updateCounterButtonText(counter) {
+    switch (counter) {
+        case 1:
+            return "Fuck Jeets";
+        case 2:
+            return "Fuck Jeets !";
+        case 3:
+            return "Fuck Jeets !!";
+        case 4:
+            return "Fuck Jeets !!!";
+        default:
+            return "Fuck";
+    }
+}
+
+// Обробник кліку для зміни GIF і тексту кнопки
+counterButton.addEventListener("click", () => {
+    counter = (counter + 1) % gifs.length; // Зміна індексу GIF
+    dynamicGif.src = gifs[counter]; // Зміна GIF або PNG
+    counterButton.textContent = updateCounterButtonText(counter); // Оновлення тексту кнопки
+});
+
+// Початкове встановлення тексту кнопки та GIF
+counterButton.textContent = updateCounterButtonText(counter);
+dynamicGif.src = gifs[counter];
