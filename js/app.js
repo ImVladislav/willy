@@ -34,6 +34,8 @@ const scoreBoard = document.getElementById('score');
 const timerDisplay = document.getElementById('timer');
 const startButton = document.getElementById('start-button');
 const bestScoreDisplay = document.getElementById('best-score');
+const hammer = document.getElementById('hammer');
+const gameContainer = document.getElementById('game');
 let score = 0;
 let lastHole;
 let timeUp = true;
@@ -115,13 +117,25 @@ function bonk(e) {
     scoreBoard.textContent = `Score: ${score}`;
 }
 
-// Обробник кліку для старту гри
-startButton.addEventListener('click', () => {
-    startGame();
-});
+// Переміщення молотка
+function moveHammer(e) {
+    hammer.style.display = 'block';
+    hammer.style.left = `${e.pageX - hammer.offsetWidth / 2}px`;
+    hammer.style.top = `${e.pageY - hammer.offsetHeight / 2}px`;
+}
 
+// Удар молотком
+function hitHammer() {
+    hammer.classList.add('active');
+    setTimeout(() => hammer.classList.remove('active'), 100);
+}
+
+// Події
+startButton.addEventListener('click', startGame);
 const moles = document.querySelectorAll('.mole');
 moles.forEach(mole => mole.addEventListener('click', bonk));
+gameContainer.addEventListener('mousemove', moveHammer);
+gameContainer.addEventListener('mousedown', hitHammer);
 
 //копі текст
 
